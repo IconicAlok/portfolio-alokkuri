@@ -10,7 +10,7 @@ import { WorkPage } from './pages/WorkPage'
 import { ContactPage } from './pages/ContactPage'
 import { NotFound } from './pages/NotFound'
 import { ServicePage } from './pages/ServicePage'
-import { WorkDetails } from './components/Workdetails'
+import { WorkDetails } from './components/WorkDetails'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
