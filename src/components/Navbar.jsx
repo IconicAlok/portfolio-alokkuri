@@ -85,13 +85,13 @@ export const Navbar = () => {
                 <div className="md:hidden border-t border-gray-200 bg-gray-600/60 py-4">
                     <div className="flex flex-col space-y-4">
                         {navItems.map((item,index)=>
-                        <Link 
+                        <NavLink 
                         key={item.name}
                         to={item.href}
                         className={({ isActive }) => 
                                 `py-2 px-3 text-base font-medium transition-colors duration-200 rounded-md ${
                                     isActive 
-                                    ? "text-blue-300 bg-gray-700/50" 
+                                    ? "text-gray-300 bg-gray-700/50" 
                                     : "text-gray-100 hover:text-gray-300 hover:bg-gray-500" 
                                 }`
                             }                        
@@ -99,7 +99,7 @@ export const Navbar = () => {
                         data-aos="fade-up"
                         data-aos-delay={100+ (index * 50)}>                        
                            {item.name}
-                        </Link>
+                        </NavLink>
                         )}
                     </div >
                     <div className="flex items-center justify-center space-x-6 mt-6 pt-4 border-t border-gray-100/20 ">
