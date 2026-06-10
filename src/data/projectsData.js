@@ -46,7 +46,7 @@ export const projectsData = [
         title: 'Project Five',
         desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.A aut mollitia ex pariatur dolores vel laborum earum est accusantium",
         image: work5,
-        category: 'Web development',
+        category: 'Ui/Ux design',
         client: 'Enterprise Inc',
         date: 'May 2026'
     },

@@ -3,10 +3,10 @@ import { NavLink, Link, useLocation } from 'react-router-dom'
 import { projectsData } from '../data/projectsData' 
 
 export const Works = () => {
-
   const location = useLocation()
   const isAllWorksPage = location.pathname === '/works'
-
+ 
+  const visibleCards = isAllWorksPage ? projectsData : projectsData.slice(0, 3);
   return (
     <section id="work" className="w-full py-16 bg-white overflow-hidden">
         {/* Back navigation only appears when viewing as a full page */}
@@ -21,12 +21,12 @@ export const Works = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12" data-aos="fade-down" data-aos-delay="100">
             <div className="mb-6 md:mb-0">
-                <h2 className="text-3xl font-bold text-gray-900 text-left">My Work</h2>
-                <p>Explore my latest projects and creations</p>
+                <h2 className="text-3xl font-bold text-gray-900 text-left">My Work</h2> 
+                <p className="text-gray-500 text-left">Explore my latest projects and creations</p>
             </div>
             
             {!isAllWorksPage && (
-                <NavLink to="/works" className="inline-flex items-center text-gray-700 hover:text-black font-medium group" data-aos="fade-left" data-aos-delay="300">
+                <NavLink to="/works" className="inline-flex items-center text-gray-700 hover:text-black font-medium group" data-aos="fade-left" data-aos-delay="300" >
                     See all
                     <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"/>
                 </NavLink>
@@ -34,7 +34,7 @@ export const Works = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projectsData.map((project, index)=> (
+            {visibleCards.map((project, index)=> (
                 <div key={project.id} className="bg-gray-50 border rounded-xl overflow-hidden hover:border-gray-300 hover:shadow-lg transition-all group" data-aos="zoom-in" data-aos-delay={200 + (index*150)}>
                     <div className="relative overflow-hidden">
                         <img src={project.image} alt={project.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
