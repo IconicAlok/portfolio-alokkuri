@@ -1,6 +1,6 @@
 import { Code2, Github, Linkedin, Mail, Menu, X } from "lucide-react"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const navItems = [
@@ -35,18 +35,25 @@ export const Navbar = () => {
                 </div>
                 <div className="hidden md:flex items:center space-x-8">
                     { navItems.map((item, index)=>(
-                        <Link
+                        <NavLink
                         key={item.name} 
                         to={item.href}
-                        className="text-gray-700 hover:text-gray-400 font-medium transition-colors duration-200"
+                        className={({ isActive }) => 
+                            `font-medium transition-colors duration-200 ${
+                                isActive 
+                                ? "text-gray-300 font-semibold"
+                                : "text-gray-700 hover:text-gray-400"
+                            }`
+                        }
+                            
                         data-aos='fade-down'
                         data-aos-delay={300+(index*50)}
                         >
                             {item.name}
-                        </Link>
+                        </NavLink>
                     ))}
                 </div>
-                <div className="hidden md:flex items:center space-x-4">
+                <div className="hidden md:flex items-center space-x-4">
                     {socialLinks.map((link,index)=>(
                         <a
                         key={index}
@@ -81,9 +88,13 @@ export const Navbar = () => {
                         <Link 
                         key={item.name}
                         to={item.href}
-                        className="text-gray-100 hover:text-gray-300 py-2 px-3
-                        text-base font-medium transition-colors duration-200
-                        rounded-md hover:bg-gray-500"                       
+                        className={({ isActive }) => 
+                                `py-2 px-3 text-base font-medium transition-colors duration-200 rounded-md ${
+                                    isActive 
+                                    ? "text-blue-300 bg-gray-700/50" 
+                                    : "text-gray-100 hover:text-gray-300 hover:bg-gray-500" 
+                                }`
+                            }                        
                         onClick={()=>setIsMenuOpen(false)}
                         data-aos="fade-up"
                         data-aos-delay={100+ (index * 50)}>                        

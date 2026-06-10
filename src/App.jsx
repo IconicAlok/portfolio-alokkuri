@@ -1,4 +1,4 @@
- import {useEffect} from 'react'
+import {useEffect} from 'react'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Navbar} from './components/Navbar'
@@ -11,6 +11,7 @@ import { ContactPage } from './pages/ContactPage'
 import { NotFound } from './pages/NotFound'
 import { ServicePage } from './pages/ServicePage'
 import { WorkDetails } from './components/WorkDetails'
+import { ClientsPage } from './pages/ClientsPage'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/skills" element={<SkillsPage />} />
         <Route path="/works" element={<WorkPage />}/>
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/clients" element={<ClientsPage />} />
         <Route path="/service" element={<ServicePage />} />
         <Route path="/works/:id" element={<WorkDetails />} />
         <Route path="*" element={<NotFound />} />
